@@ -22,7 +22,7 @@ This prototype could probably be realized with any other MCU and sensor/actuator
 
 ### Moisture sensor
 1. Connect VCC and GND of sensor with 5V and GND of NUCLEO board respectively
-2. Connect AVOUT with pin A2 of NUCLEO board
+2. Connect AVOUT of sensor with pin A2 of NUCLEO board
 
 # Software
 ## Required Software
@@ -33,5 +33,5 @@ This prototype could probably be realized with any other MCU and sensor/actuator
 1. Open STM32CubeMX and setup a default project for the dev board NUCLEO-L432KC
 2. Activate channel 8 of ADC1 and set it to _single-ended_
 3. Activate timer TIM16 and set the prescaler to _32000_
-4. Set the pin PA4 of the MCU to GPIO_Output
+4. Set the pin PA4 of the MCU to _GPIO\_Output_
 5. USART should be activated in _asynchronous_ mode for debugging purposes

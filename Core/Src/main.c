@@ -121,6 +121,13 @@ int main(void)
     {
       HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 
+      HAL_ADC_Start(&hadc1);
+      HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+      adc_value = HAL_ADC_GetValue(&hadc1);
+      HAL_ADC_Stop(&hadc1);
+
+      printf("ADC Value: %d\r\n", adc_value);
+
       half_secs++;
       __HAL_TIM_SET_COUNTER(&htim16, 0);
     }

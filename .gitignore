@@ -1,7 +1,7 @@
 .vscode
-.yaml
-.cfg
-.make
+*.yaml
+*.cfg
+*.make
 
 build
 

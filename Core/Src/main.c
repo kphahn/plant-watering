@@ -101,7 +101,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   HAL_TIM_Base_Start(&htim16);
-  HAL_GPIO_WritePin(REL_GPIO_Port, REL_Pin, GPIO_PIN_RESET); // begin with pump off
+  HAL_GPIO_WritePin(REL_GPIO_Port, REL_Pin, GPIO_PIN_SET); // begin with pump off
 
   int counter_val = 0;
   int half_secs = 0;

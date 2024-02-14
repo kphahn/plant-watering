@@ -101,7 +101,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   HAL_TIM_Base_Start(&htim16);
-  HAL_GPIO_WritePin(REL_GPIO_Port, REL_Pin, GPIO_PIN_RESET); // begin with pump off
+  HAL_GPIO_WritePin(REL_GPIO_Port, REL_Pin, GPIO_PIN_SET); // begin with pump off
 
   int counter_val = 0;
   int half_secs = 0;
@@ -120,6 +120,13 @@ int main(void)
     if (counter_val >= 500)
     {
       HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+
+      HAL_ADC_Start(&hadc1);
+      HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+      adc_value = HAL_ADC_GetValue(&hadc1);
+      HAL_ADC_Stop(&hadc1);
+
+      printf("ADC Value: %d\r\n", adc_value);
 
       half_secs++;
       __HAL_TIM_SET_COUNTER(&htim16, 0);

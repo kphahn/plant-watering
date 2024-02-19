@@ -7,7 +7,7 @@ _default:
 build:
     make
 
-# Budil binary and flash target
+# Build binary and flash target
 deploy:
     @just build
     tar -C build -c watering.bin | ssh phili@phili-server \
